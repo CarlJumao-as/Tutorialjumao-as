@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced HTML Tutorial</title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #2d3e50, #1b1b2f);
+            color: #f0f0f0;
+            padding: 0;
+            overflow-x: hidden;
+            animation: gradientAnimation 10s ease infinite;
+            font-size: 16px;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background: linear-gradient(135deg, #2d3e50, #1b1b2f);
+            }
+            50% {
+                background: linear-gradient(135deg, #9b59b6, #3498db);
+            }
+            100% {
+                background: linear-gradient(135deg, #2d3e50, #1b1b2f);
+            }
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.6);
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            color: #ff6347;
+            text-shadow: 0 0 15px rgba(255, 99, 71, 0.7), 0 0 30px rgba(255, 99, 71, 0.5);
+            letter-spacing: 3px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px 0;
+            z-index: 999;
+        }
+
+        nav a {
+            color: #ff6347;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 99, 71, 0.2);
+            border-radius: 50%;
+            transition: all 0.5s ease;
+            transform: translate(-50%, -50%) scale(0);
+        }
+
+        nav a:hover::before {
+            transform: translate(-50%, -50%) scale(4);
+        }
+
+        nav a:hover {
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        /* Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            transform: translateY(20px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #ff6347;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 99, 71, 0.6);
+        }
+
+        p, ul {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li::before {
+            content: '✔️';
+            margin-right: 10px;
+            color: #ff6347;
+        }
+
+        /* Code Box Styling */
+        .code-box {
+            background: #1d1f28;
+            border-left: 5px solid #ff6347;
+            padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #f0f0f0;
+            border-radius: 8px;
+            margin-top: 15px;
+            line-height: 1.5;
+            overflow-x: auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        pre {
+            background-color: transparent;
+            color: inherit;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* Button Styling */
+        .btn {
+            display: inline-block;
+            background: #ff6347;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: #f44336;
+            transform: scale(1.1);
+        }
+
+        /* Footer Styling */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            margin-top: 50px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            nav a {
+                font-size: 1rem;
+                padding: 8px 15px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            footer {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Advanced HTML Tutorial</h1>
+        <p>Explore the Power of HTML with Style and Elegance</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#section1">Introduction</a>
+        <a href="#section2">Structure</a>
+        <a href="#section3">Tags</a>
+        <a href="#section4">Forms</a>
+        <a href="#section5">Images</a>
+        <a href="#section6">Tables</a>
+        <a href="#section7">Semantic HTML</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Section 1: Introduction -->
+        <div id="section1" class="section">
+            <h2>What is HTML?</h2>
+            <p>HTML (Hypertext Markup Language) is the backbone of web development. It structures content on the web using a series of tags that browsers can read and display.</p>
+            <a href="https://www.w3schools.com/html/" class="btn">Learn More</a>
+        </div>
+
+        <!-- Section 2: Basic Structure -->
+        <div id="section2" class="section">
+            <h2>Basic HTML Structure</h2>
+            <p>Every HTML document has a basic structure. Here’s a simple example:</p>
+            <div class="code-box">
+                <pre>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>My First Page</title>
+    </head>
+    <body>
+        <h1>Welcome to My Website</h1>
+        <p>This is a paragraph.</p>
+    </body>
+</html>
+                </pre>
+            </div>
+        </div>
+
+        <!-- Section 3: Common HTML Tags -->
+        <div id="section3" class="section">
+            <h2>Common HTML Tags</h2>
+            <ul>
+                <li><strong>&lt;h1&gt;</strong>: Main heading.</li>
+                <li><strong>&lt;p&gt;</strong>: Paragraph text.</li>
+                <li><strong>&lt;a&gt;</strong>: Hyperlink.</li>
+                <li><strong>&lt;img&gt;</strong>: Image tag.</li>
+                <li><strong>&lt;ul&gt; &lt;li&gt;</strong>: Unordered list items.</li>
+            </ul>
+            <p>Example of these tags:</p>
+            <div class="code-box">
+                <pre>
+<h1>This is a Heading</h1>
+<p>Here is a <a href="#">link</a>.</p>
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ul>
+                </pre>
+            </div>
+        </div>
+
+        <!-- Section 4: HTML Forms -->
+        <div id="section4" class="section">
+            <h2>HTML Forms</h2>
+            <p>Forms are essential for capturing user input. Here's a simple form example:</p>
+            <div class="code-box">
+                <pre>
+<form action="/submit" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+    
+    <input type="submit" value="Submit">
+</form>
+                </pre>
+            </div>
+        </div>
+
+        <!-- Section 5: HTML Images -->
+        <div id="section5" class="section">
+            <h2>HTML Images</h2>
+            <p>Use the <code>&lt;img&gt;</code> tag to embed images in your web page:</p>
+            <div class="code-box">
+                <pre>
+<img src="image.jpg" alt="A beautiful landscape" width="600" height="400">
+                </pre>
+            </div>
+        </div>
+
+        <!-- Section 6: HTML Tables -->
+        <div id="section6" class="section">
+            <h2>HTML Tables</h2>
+            <p>HTML tables are useful for displaying tabular data:</p>
+            <div class="code-box">
+                <pre>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    <tr>
+        <td>Alice</td>
+        <td>30</td>
+    </tr>
+    <tr>
+        <td>Bob</td>
+        <td>25</td>
+    </tr>
+</table>
+                </pre>
+            </div>
+        </div>
+
+        <!-- Section 7: Semantic HTML -->
+        <div id="section7" class="section">
+            <h2>Semantic HTML</h2>
+            <p>Semantic HTML tags describe their content. For example, use <code>&lt;article&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, and <code>&lt;section&gt;</code> to provide meaning to the content:</p>
+            <div class="code-box">
+                <pre>
+<header>
+    <h1>Welcome to My Website</h1>
+</header>
+
+<article>
+    <p>This is an article.</p>
+</article>
+
+<footer>
+    <p>All rights reserved.</p>
+</footer>
+                </pre>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Advanced HTML Tutorial. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
